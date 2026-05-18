@@ -1,0 +1,159 @@
+{
+    "releases": [
+        {
+            "release_name": "jdk-11.0.31+11",
+            "last_updated_timestamp": "2026-05-18T13:00:00Z",
+            "vendor": "microsoft",
+            "openjdk_version_data": {
+                "major": 11,
+                "minor": 0,
+                "security": 31,
+                "patch": null,
+                "pre": null,
+                "build": 11,
+                "optional": null,
+                "openjdk_version": "11.0.31+11"
+            },
+            "source": {
+                "name": "microsoft-sources-11.0.31_11-all-noarch.tar.gz",
+                "link": "https://github.com/microsoft/openjdk-jdk11u/archive/refs/heads/release/jdk-11.0.31_11.tar.gz"
+            },
+            "binaries": [
+                {
+                    "os": "linux",
+                    "architecture": "x64",
+                    "image_type": "jdk",
+                    "jvm_impl": "hotspot",
+                    "package": {
+                        "name": "microsoft-jdk-11.0.31-linux-x64.tar.gz",
+                        "link": "https://aka.ms/download-jdk/microsoft-jdk-11.0.31-linux-x64.tar.gz",
+                        "sha256sum": "d10004134ed177a4d1a5417e8216af4baf44b4abbaf44d8b973d32088cb03b59",
+                        "sha256sum_link": "https://aka.ms/download-jdk/microsoft-jdk-11.0.31-linux-x64.tar.gz.sha256sum.txt",
+                        "signature_link": "https://aka.ms/download-jdk/microsoft-jdk-11.0.31-linux-x64.tar.gz.sig"
+                    },
+                    "timestamp": "2026-05-18T13:00:00Z",
+                    "openjdk_scm_ref": "jdk-11.0.31+11",
+                    "distribution": "microsoft",
+                    "aqavit_results_link": "https://github.com/microsoft/openjdk-adoptium-marketplace-data/releases/download/apr-2026-psu/jdk11-linux-x64.zip"
+                },
+                {
+                    "os": "mac",
+                    "architecture": "x64",
+                    "image_type": "jdk",
+                    "jvm_impl": "hotspot",
+                    "package": {
+                        "name": "microsoft-jdk-11.0.31-macos-x64.tar.gz",
+                        "link": "https://aka.ms/download-jdk/microsoft-jdk-11.0.31-macos-x64.tar.gz",
+                        "sha256sum": "f16583e0fe5ce4274dc4bec49593470d899353b16f5571a2cd980d6438f9f3ef",
+                        "sha256sum_link": "https://aka.ms/download-jdk/microsoft-jdk-11.0.31-macos-x64.tar.gz.sha256sum.txt",
+                        "signature_link": "https://aka.ms/download-jdk/microsoft-jdk-11.0.31-macos-x64.tar.gz.sig"
+                    },
+                    "installer": [
+                        {
+                            "name": "microsoft-jdk-11.0.31-macos-x64.pkg",
+                            "link": "https://aka.ms/download-jdk/microsoft-jdk-11.0.31-macos-x64.pkg",
+                            "sha256sum": "23a7846606bdfe7f05fe7ba20496a34f3cadd7f01bf8f3a07cda1377a52078cc",
+                            "sha256sum_link": "https://aka.ms/download-jdk/microsoft-jdk-11.0.31-macos-x64.pkg.sha256sum.txt"
+                        }
+                    ],
+                    "timestamp": "2026-05-18T13:00:00Z",
+                    "openjdk_scm_ref": "jdk-11.0.31+11",
+                    "distribution": "microsoft",
+                    "aqavit_results_link": "https://github.com/microsoft/openjdk-adoptium-marketplace-data/releases/download/apr-2026-psu/jdk11-macos-x64.zip"
+                },
+                {
+                    "os": "windows",
+                    "architecture": "x64",
+                    "image_type": "jdk",
+                    "jvm_impl": "hotspot",
+                    "package": {
+                        "name": "microsoft-jdk-11.0.31-windows-x64.zip",
+                        "link": "https://aka.ms/download-jdk/microsoft-jdk-11.0.31-windows-x64.zip",
+                        "sha256sum": "a63b83ba4c601e0e2907050e88e939c484c4ae520931f52eb356d0516f2ff4f5",
+                        "sha256sum_link": "https://aka.ms/download-jdk/microsoft-jdk-11.0.31-windows-x64.zip.sha256sum.txt",
+                        "signature_link": "https://aka.ms/download-jdk/microsoft-jdk-11.0.31-windows-x64.zip.sig"
+                    },
+                    "installer": [
+                        {
+                            "name": "microsoft-jdk-11.0.31-windows-x64.msi",
+                            "link": "https://aka.ms/download-jdk/microsoft-jdk-11.0.31-windows-x64.msi",
+                            "sha256sum": "2beab8f365cd92d38fa733a41506d9c92942d1ac7ca4d43d14cba556c31bc7fa",
+                            "sha256sum_link": "https://aka.ms/download-jdk/microsoft-jdk-11.0.31-windows-x64.msi.sha256sum.txt"
+                        }
+                    ],
+                    "timestamp": "2026-05-18T13:00:00Z",
+                    "openjdk_scm_ref": "jdk-11.0.31+11",
+                    "distribution": "microsoft",
+                    "aqavit_results_link": "https://github.com/microsoft/openjdk-adoptium-marketplace-data/releases/download/apr-2026-psu/jdk11-windows-x64.zip"
+                },
+                {
+                    "os": "windows",
+                    "architecture": "aarch64",
+                    "image_type": "jdk",
+                    "jvm_impl": "hotspot",
+                    "package": {
+                        "name": "microsoft-jdk-11.0.31-windows-aarch64.zip",
+                        "link": "https://aka.ms/download-jdk/microsoft-jdk-11.0.31-windows-aarch64.zip",
+                        "sha256sum": "517a4cf5dd66376ae2b576bffb58583f8673b517d16459db09c91b536134f0d5",
+                        "sha256sum_link": "https://aka.ms/download-jdk/microsoft-jdk-11.0.31-windows-aarch64.zip.sha256sum.txt",
+                        "signature_link": "https://aka.ms/download-jdk/microsoft-jdk-11.0.31-windows-aarch64.zip.sig"
+                    },
+                    "installer": [
+                        {
+                            "name": "microsoft-jdk-11.0.31-windows-aarch64.msi",
+                            "link": "https://aka.ms/download-jdk/microsoft-jdk-11.0.31-windows-aarch64.msi",
+                            "sha256sum": "0720b20033610bafaa0de90a4ad7cf1a82b29895a74d04948575cef8c624907b",
+                            "sha256sum_link": "https://aka.ms/download-jdk/microsoft-jdk-11.0.31-windows-aarch64.msi.sha256sum.txt"
+                        }
+                    ],
+                    "timestamp": "2026-05-18T13:00:00Z",
+                    "openjdk_scm_ref": "jdk-11.0.31+11",
+                    "distribution": "microsoft",
+                    "aqavit_results_link": "https://github.com/microsoft/openjdk-adoptium-marketplace-data/releases/download/apr-2026-psu/jdk11-windows-aarch64.zip"
+                },
+                {
+                    "os": "linux",
+                    "architecture": "aarch64",
+                    "image_type": "jdk",
+                    "jvm_impl": "hotspot",
+                    "package": {
+                        "name": "microsoft-jdk-11.0.31-linux-aarch64.tar.gz",
+                        "link": "https://aka.ms/download-jdk/microsoft-jdk-11.0.31-linux-aarch64.tar.gz",
+                        "sha256sum": "545c6ff26e02b494d323975f233bc1acb0e4e36483be86c901f29368d66aebca",
+                        "sha256sum_link": "https://aka.ms/download-jdk/microsoft-jdk-11.0.31-linux-aarch64.tar.gz.sha256sum.txt",
+                        "signature_link": "https://aka.ms/download-jdk/microsoft-jdk-11.0.31-linux-aarch64.tar.gz.sig"
+                    },
+                    "timestamp": "2026-05-18T13:00:00Z",
+                    "openjdk_scm_ref": "jdk-11.0.31+11",
+                    "distribution": "microsoft",
+                    "aqavit_results_link": "https://github.com/microsoft/openjdk-adoptium-marketplace-data/releases/download/apr-2026-psu/jdk11-linux-aarch64.zip"
+                },
+                {
+                    "os": "mac",
+                    "architecture": "aarch64",
+                    "image_type": "jdk",
+                    "jvm_impl": "hotspot",
+                    "package": {
+                        "name": "microsoft-jdk-11.0.31-macos-aarch64.tar.gz",
+                        "link": "https://aka.ms/download-jdk/microsoft-jdk-11.0.31-macos-aarch64.tar.gz",
+                        "sha256sum": "03e7a317bf74e370252a86049d379183628dfb7320e9e74ae0bdcfd8a4506bd9",
+                        "sha256sum_link": "https://aka.ms/download-jdk/microsoft-jdk-11.0.31-macos-aarch64.tar.gz.sha256sum.txt",
+                        "signature_link": "https://aka.ms/download-jdk/microsoft-jdk-11.0.31-macos-aarch64.tar.gz.sig"
+                    },
+                    "installer": [
+                        {
+                            "name": "microsoft-jdk-11.0.31-macos-aarch64.pkg",
+                            "link": "https://aka.ms/download-jdk/microsoft-jdk-11.0.31-macos-aarch64.pkg",
+                            "sha256sum": "692e9d2aba8a5b937fe1bccc951342aa4180acd812a93b5e2e623aaed4eba9e2",
+                            "sha256sum_link": "https://aka.ms/download-jdk/microsoft-jdk-11.0.31-macos-aarch64.pkg.sha256sum.txt"
+                        }
+                    ],
+                    "timestamp": "2026-05-18T13:00:00Z",
+                    "openjdk_scm_ref": "jdk-11.0.31+11",
+                    "distribution": "microsoft",
+                    "aqavit_results_link": "https://github.com/microsoft/openjdk-adoptium-marketplace-data/releases/download/apr-2026-psu/jdk11-macos-aarch64.zip"
+                }
+            ]
+        }
+    ]
+}
