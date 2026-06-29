@@ -104,6 +104,41 @@ def build_version_entry(version: str) -> dict[str, object]:
     }
 
 
+def version_sort_key(version: str) -> tuple[int, int, int, float]:
+    parts: list[str] = version.split("+")
+    parts = parts[0].split(".") + parts[1:]
+    if len(parts) == 3:
+        major, minor, security = parts
+        patch = "0"
+    elif len(parts) == 4:
+        major, minor, security, patch = parts
+    else:
+        raise ValueError(f"Unsupported version format: {version}")
+
+    return (int(major), int(minor), int(security), float(patch))
+
+
+def load_existing_versions(versions_file: Path) -> list[str]:
+    if not versions_file.is_file():
+        return []
+
+    with versions_file.open("r", encoding="utf-8") as file_handle:
+        versions_data = json.load(file_handle)
+
+    if not isinstance(versions_data, list):
+        raise ValueError(f"Expected a top-level list in {versions_file}")
+
+    existing_versions: list[str] = []
+    for entry in versions_data:
+        if not isinstance(entry, dict):
+            continue
+        version = entry.get("version")
+        if isinstance(version, str):
+            existing_versions.append(version)
+
+    return existing_versions
+
+
 def collect_versions(release_dirs: list[Path]) -> list[str]:
     versions: list[str] = []
     seen_versions: set[str] = set()
@@ -121,6 +156,8 @@ def collect_versions(release_dirs: list[Path]) -> list[str]:
 
 def main(versions_file: Path, release_dirs: list[Path]) -> None:
     versions = collect_versions(release_dirs)
+    versions.extend(load_existing_versions(versions_file))
+    versions = sorted(set(versions), key=version_sort_key, reverse=True)
     version_entries = [build_version_entry(version) for version in versions]
 
     with versions_file.open("w", encoding="utf-8") as file_handle:
