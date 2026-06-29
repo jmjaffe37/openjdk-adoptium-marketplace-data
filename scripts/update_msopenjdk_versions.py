@@ -1,15 +1,17 @@
 """Update the Microsoft OpenJDK marketplace versions file from release indexes.
 
 Usage:
-    update_msopenjdk_versions.py --versions_file=<versions_file> --release_dir=<release_dir>...
+    update_msopenjdk_versions.py --versions_file=<versions_file> --release_dir=<release_dir>... [--exclude_alpine]
 
 Options:
     --versions_file=<versions_file>  Path to microsoft-openjdk-versions.json.
     --release_dir=<release_dir>      Release directory containing index.json. Repeat for each major.
+    --exclude_alpine                 Exclude Alpine package entries (for jdk11 and jdk17) from generated files.
     --help  Show this help message.
 
 Example:
     update_msopenjdk_versions.py --versions_file=../general_info/microsoft-openjdk-versions.json --release_dir=../25 --release_dir=../21 --release_dir=../17
+    update_msopenjdk_versions.py --versions_file=../general_info/microsoft-openjdk-versions.json --release_dir=../21 --release_dir=../17 --release_dir=../11 --exclude_alpine
 """
 
 from __future__ import annotations
@@ -38,6 +40,9 @@ PACKAGE_LAYOUT = (
     ("linux", "aarch64", "linux-aarch64.tar.gz"),
     ("win32", "aarch64", "windows-aarch64.zip"),
 )
+
+ALPINE_PACKAGE_LAYOUT = (("alpine", "x64", "alpine-x64.tar.gz"),)
+EXCLUDE_ALPINE = False
 
 
 def parse_version_from_release_json_name(release_filename: str) -> str:
@@ -73,7 +78,11 @@ def load_release_json_names(release_dir: Path) -> list[str]:
 
 def build_files(version: str) -> list[dict[str, str]]:
     files = []
-    for platform, arch, suffix in PACKAGE_LAYOUT:
+    package_layout = PACKAGE_LAYOUT
+    if not EXCLUDE_ALPINE and (version.startswith("11.") or version.startswith("17.")):
+        package_layout += ALPINE_PACKAGE_LAYOUT
+
+    for platform, arch, suffix in package_layout:
         filename = f"microsoft-jdk-{version}-{suffix}"
         files.append(
             {
@@ -110,7 +119,7 @@ def collect_versions(release_dirs: list[Path]) -> list[str]:
     return versions
 
 
-def update_versions_file(versions_file: Path, release_dirs: list[Path]) -> None:
+def main(versions_file: Path, release_dirs: list[Path]) -> None:
     versions = collect_versions(release_dirs)
     version_entries = [build_version_entry(version) for version in versions]
 
@@ -125,15 +134,11 @@ def update_versions_file(versions_file: Path, release_dirs: list[Path]) -> None:
     )
 
 
-def main() -> None:
+if __name__ == "__main__":
     args = docopt(__doc__)
+    EXCLUDE_ALPINE = bool(args["--exclude_alpine"])
     versions_file = Path(str(args["--versions_file"])).resolve()
     release_dirs = [
         Path(release_dir).resolve() for release_dir in args["--release_dir"]
     ]
-
-    update_versions_file(versions_file=versions_file, release_dirs=release_dirs)
-
-
-if __name__ == "__main__":
-    main()
+    main(versions_file=versions_file, release_dirs=release_dirs)
